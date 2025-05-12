@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Map Tools</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Interactive Map Viewer</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="maps.html">Map Tools</a>
+      <a href="form.html">Join Us</a>
+      <a href="success.html">Successes</a>
+    </nav>
+  </header>
+
+  <div id="map" style="height: 500px;"></div>
+
+  <script>
+    const map = L.map('map').setView([-1.2921, 36.8219], 6); // Nairobi center
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([-1.2921, 36.8219]).addTo(map)
+      .bindPopup("Nairobi, Kenya - Map Hub")
+      .openPopup();
+  </script>
+</body>
+</html>
